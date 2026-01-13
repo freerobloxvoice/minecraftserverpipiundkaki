@@ -1,0 +1,16 @@
+Footer{
+    background-color: #51E398;
+    text-align: center;
+    margin: 25px;
+}
+
+footer p{
+    color: #555;
+}
+
+.footerlink{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    margin: 25px;
+}
