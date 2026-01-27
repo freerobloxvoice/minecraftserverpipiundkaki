@@ -1,0 +1,41 @@
+
+
+@media screen and (min-width:700px){
+    .logo{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    }
+
+    .navbar{
+        list-style: none;
+        gap: 50px;
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+
+    .nav-link{
+        text-decoration: inherit;
+        color: inherit;
+    }
+
+    .basket-button{
+        background-color: #5AA07C;
+        padding: 10px 15px;
+    }
+
+    .basket-button img{
+        background-color: #51E398;
+    }
+
+    .basket-button button{
+        color: #FFFFFF;
+        background-color: transparent;
+        border: transparent;
+    }
+    header{
+        background-color: #00000088;
+        padding: 10px 30px;
+    }
+}
+

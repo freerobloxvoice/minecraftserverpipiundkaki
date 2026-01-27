@@ -1,0 +1,15 @@
+.news{
+    text-align: center;
+    justify-content: center;
+    background-color: #F5F5F5;
+    margin-bottom: 50px;
+    border-left: 40px #51E398 solid;
+    border-right: 40px #51E398 solid;
+    color: black;
+}
+
+.news img{
+    width: 600px;
+    border: 15px #51E398 solid;
+    margin: 20px;
+}
