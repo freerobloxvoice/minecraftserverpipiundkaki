@@ -1,0 +1,18 @@
+.heroblock{
+    text-align: center;
+    margin-bottom: 50px;
+    background-color: #F5F5F5;
+    color: black;
+    padding: 50px;
+    border-top: 40px #51E398 solid;
+    border-left: 40px #51E398 solid;
+    border-right: 40px #51E398 solid;
+}
+
+.heroblock a{
+    color: white;
+    text-decoration: none;
+    background-color: #51E398;
+    padding: 10px;
+    font-size: 20px;
+}
