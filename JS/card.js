@@ -14,3 +14,7 @@ function addtocard(id,name,price,img){
     }
     savecard()
 }
+
+function savecard(){
+    localStorage.setItem("card",JSON.stringify(card))
+}
