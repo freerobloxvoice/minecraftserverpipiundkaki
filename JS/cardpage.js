@@ -9,29 +9,29 @@ document.addEventListener("DOMContentLoaded", () => {
         let total = 0;
 
         if (cart.length === 0) {
-            container.innerHTML = "<h3>Кошик порожній</h3>";
+            container.innerHTML = "<h3>Cart is empty</h3>";
             totalEl.textContent = "";
             return;
         }
 
-        cart.forEach(item => {
+cart.forEach(item => {
             total += item.price * item.qty;
 
             container.innerHTML += `
-            <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
-                <h3>${item.name}</h3>
-                <p>${item.price} грн</p>
+            <div class="cart-item" style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+                <h3 class="item-name">${item.name}</h3>
+                <p class="item-price">${item.price}$</p>
 
-                <button onclick="changeQty(${item.id}, -1)">-</button>
+                <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
                 ${item.qty}
-                <button onclick="changeQty(${item.id}, 1)">+</button>
+                <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
 
-                <button onclick="removeItem(${item.id})">Видалити</button>
+                <button class="remove-btn" onclick="removeItem(${item.id})">Remove</button>
             </div>
             `;
         });
-
-        totalEl.textContent = "Разом: " + total + " грн";
+        
+        totalEl.textContent = "Price for everything : " + total + "$";
     }
 
     window.changeQty = function(id, delta) {
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     window.confirmOrder = function() {
-        alert("Замовлення оформлено!");
+        alert("Bought successfully!");
         localStorage.removeItem("card");
         location.reload();
     }

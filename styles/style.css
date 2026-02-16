@@ -59,3 +59,47 @@ body{
     font-size: 1.2em;
 }
 
+.cart{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cart-item{
+    display: flex;
+    width: 750px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.remove-btn{
+    color:rgb(255, 0, 0);
+    cursor:pointer;
+    background-color:var(--secondary);
+    font-size:1.1em;
+    text-decoration:underline;
+    text-underline-offset:4px;
+    outline:none;
+    border:none;
+}
+
+.qty-btn{
+    background-color: var(--secondary);
+    color:#fff;
+    font-size: 1.3em;
+    font-weight: 800;
+    color:#078149;
+    padding:5px 10px;
+    border:none;
+    outline: none;
+    cursor: pointer;
+}
+
+.buylink{
+    text-decoration: none;
+    color: aquamarine;
+    -webkit-text-stroke: black 1px;
+    font-size: 50px;
+}
