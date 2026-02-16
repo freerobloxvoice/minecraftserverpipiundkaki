@@ -1,48 +1,71 @@
-document.addEventListener("DOMContentLoaded",()=>{
-    let card = JSON.parse(localStorage.getItem("card")) || [];
-    let container = document.querySelector(".card-items");
+document.addEventListener("DOMContentLoaded", () => {
+
+    let cart = JSON.parse(localStorage.getItem("card")) || [];
+    let container = document.querySelector(".cart-items");
     let totalEl = document.querySelector(".total");
-    function rendercard(){
-        container.innerHTML=""
-        let total = 0
-        if (card.length === 0){
-            container.innerHTML = "<h3>Cart is empty</h3>"
-            totalEl.textContent = ""
-            return
+
+    function renderCart() {
+        container.innerHTML = "";
+        let total = 0;
+
+        if (cart.length === 0) {
+            container.innerHTML = "<h3>Кошик порожній</h3>";
+            totalEl.textContent = "";
+            return;
         }
-        card.forEach(element => {
-            total += element.price*item.qty
+
+        cart.forEach(item => {
+            total += item.price * item.qty;
+
             container.innerHTML += `
             <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
                 <h3>${item.name}</h3>
-                <p>${item.price} $</p>
+                <p>${item.price} грн</p>
 
                 <button onclick="changeQty(${item.id}, -1)">-</button>
                 ${item.qty}
                 <button onclick="changeQty(${item.id}, 1)">+</button>
 
-                <button onclick="removeItem(${item.id})">Remove</button>
+                <button onclick="removeItem(${item.id})">Видалити</button>
             </div>
             `;
-        });}
-        window.removeItem = function(id){
-            card = card.filter(i => i.id!==id)
-            save()
+        });
+
+        totalEl.textContent = "Разом: " + total + " грн";
+    }
+
+    window.changeQty = function(id, delta) {
+        let item = cart.find(i => i.id === id);
+        if (!item) return;
+
+        item.qty += delta;
+
+        if (item.qty <= 0) {
+            cart = cart.filter(i => i.id !== id);
         }
-        function save(){
-            localStorage.setItem("card",JSON.stringify(card))
-            rendercard()
-        }
-        window.openCheckout = function() {
+
+        save();
+    }
+
+    window.removeItem = function(id) {
+        cart = cart.filter(i => i.id !== id);
+        save();
+    }
+
+    function save() {
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
+    }
+
+    window.openCheckout = function() {
         document.querySelector(".checkout").style.display = "block";
     }
 
     window.confirmOrder = function() {
         alert("Замовлення оформлено!");
-        localStorage.removeItem("cart");
+        localStorage.removeItem("card");
         location.reload();
     }
 
     renderCart();
-    
-})
+});
